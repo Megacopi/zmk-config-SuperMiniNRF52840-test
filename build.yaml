@@ -1,0 +1,9 @@
+# Copyright (c) 2024
+# SPDX-License-Identifier: MIT
+#
+# Diese Datei wird von GitHub Actions verwendet um die Firmware zu bauen
+
+---
+include:
+  - board: nice_nano_v2
+    shield: macropad3x3
