@@ -1,0 +1,23 @@
+name: Build ZMK Firmware
+
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build Firmware
+        uses: zmkfirmware/zmk-build-firmware@main
+        with:
+          config-path: config
+          artifact-name: firmware
+
+      - name: Upload Firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: macropad3x3-firmware
+          path: firmware/*.uf2
